@@ -219,7 +219,7 @@ class dlseq:
         model.add(Dense(20, activation='relu'))
         model.add(Dense(1, activation='sigmoid'))
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-        model.fit(x_train, y_train, epochs=50)
+        model.fit(x_train, y_train, epochs=20)
         model.save('seq_model')
         dlseq.model = model
         print("Model saved")
@@ -328,7 +328,7 @@ class homescreen:
             result = random_forest.predict(arglist)
         elif str == 'Logistic regression':
             result = logistic_regression.predict(arglist)
-        elif str == 'Sequential (CNN)':
+        elif str == 'Sequential (DNN)':
             result = dlseq.predict(arglist)
         print(result)
         homescreen.result = result
@@ -404,7 +404,7 @@ class homescreen:
         cb_option = tk.StringVar() #combobox
         cb = ttk.Combobox(root_window, textvariable = cb_option, state = 'readonly')
         cb.place(x=30, y=40)
-        cb['values'] = ('Decision tree','Naive-Bayes','SVM','KNN','Random forest','Logistic regression','Sequential (CNN)')
+        cb['values'] = ('Decision tree','Naive-Bayes','SVM','KNN','Random forest','Logistic regression','Sequential (DNN)')
         cb.current(0)
 
         '''menu = Menu(root_window) #menu button to retrain sequential model
