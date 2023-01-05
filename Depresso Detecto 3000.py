@@ -20,6 +20,14 @@ df[categ] = df[categ].apply(le.fit_transform)
 x = df.drop('DEPRESSED', axis = 1)
 y = df['DEPRESSED']
 
+
+'''Config.txt read'''
+config = open("Config.txt", "r")
+load_dnn_flag = config.readline().split()[2]
+load_dnn_flag = load_dnn_flag.lower() in "true"
+config.close()
+
+
 class decision_tree:
 
     model = []
@@ -42,12 +50,12 @@ class decision_tree:
     def predict(arglist):
         model = decision_tree.model
         if(model==[]):
-            print("Train the F*CKIN model!!!")
+            print("Train decision tree")
             return
         x_pred = arglist #[envsat, possat, finstr, insom, anx, depri, abuse, cheat, threat, suic, infer, conf, loss]
         y_pred = model.predict(x_pred)[0]
         print("Decision tree:", y_pred)
-        return y_pred
+        return (y_pred, -1)
 
 class naivebayes:
 
@@ -71,12 +79,12 @@ class naivebayes:
     def predict(arglist):
         model = naivebayes.model
         if(model==[]):
-            print("Train the F*CKIN model!!!")
+            print("Train naive bayes")
             return
         x_pred = arglist
         y_pred = model.predict(x_pred)[0]
         print("Naive Bayes:", y_pred)
-        return y_pred
+        return (y_pred, -1)
 
 class svm:
 
@@ -100,12 +108,12 @@ class svm:
     def predict(arglist):
         model = svm.model
         if(model==[]):
-            print("Train the F*CKIN model!!!")
+            print("Train svm")
             return
         x_pred = arglist
         y_pred = model.predict(x_pred)[0]
         print("SVM:" , y_pred)
-        return y_pred
+        return (y_pred, -1)
 
 class knn:
 
@@ -129,12 +137,12 @@ class knn:
     def predict(arglist):
         model = knn.model
         if(model==[]):
-            print("Train the F*CKIN model!!!")
+            print("Train knn")
             return
         x_pred = arglist
         y_pred = model.predict(x_pred)[0]
         print("KNN:", y_pred)
-        return y_pred
+        return (y_pred, -1)
 
 class random_forest:
 
@@ -158,14 +166,14 @@ class random_forest:
     def predict(arglist):
         model = random_forest.model
         if(model==[]):
-            print("Train the F*CKIN model!!!")
+            print("Train random forest")
             return
         x_pred = arglist
         y_pred = model.predict(x_pred)[0]
         y_pred_rounded = round(y_pred)
         print("Random forest:", y_pred)
         print("Random forest rounded:",y_pred_rounded)
-        return y_pred_rounded
+        return (y_pred_rounded, y_pred)
 
 class logistic_regression:
 
@@ -189,12 +197,12 @@ class logistic_regression:
     def predict(arglist):
         model = logistic_regression.model
         if(model==[]):
-            print("Train the F*CKIN model!!!")
+            print("Train logistic regression")
             return
         x_pred = arglist
         y_pred = model.predict(x_pred)[0]
         print("Logistic regression:", y_pred)
-        return y_pred
+        return (y_pred, -1)
 
 class dlseq:
 
@@ -238,16 +246,16 @@ class dlseq:
     def predict(arglist):
         model = dlseq.model
         if(model==[]):
-            print("Train the F*CKIN model!!!")
+            print("DNN model unavailable")
             return
         else:
-            print('Using model')
+            print('Using DNN model')
         x_pred = arglist
         y_pred = model.predict(x_pred)[0]
         y_pred_rounded = round(float(y_pred))
         print("Deep learning sequential original:", y_pred)
         print("Deep learning sequential rounded:", y_pred_rounded)
-        return y_pred_rounded
+        return (y_pred_rounded, y_pred[0])
 
 class gui:
     
@@ -267,7 +275,12 @@ class gui:
         knn.train()
         random_forest.train()
         logistic_regression.train()
-        dlseq.check_for_model()
+
+        if(load_dnn_flag):
+            dlseq.check_for_model()
+        else:
+            print("DNN model not loaded")
+
         print("Trained all models")
         startscreen.exitstart()
         return
@@ -278,7 +291,7 @@ class startscreen:
 
     @staticmethod
     def run():
-        print("startscreen.run")
+        print("Start screen")
         import tkinter as tk
         from tkinter import Label
 
@@ -292,17 +305,15 @@ class startscreen:
         except:
             Label(start_window, text='Loading models\nPlease wait...', font=('arial', 14, 'normal')).place(x=80, y=15)
             print('Countachweb font not found. Using arial.')
-        print("Start screen")
+
         #start_window.protocol("WM_DELETE_WINDOW", sys.exit())
         #tk.Button(start_window, text ="Cancel", command = sys.exit).place(x=150, y=60)
         startscreen.start_window = start_window
-        print("start resume")
         start_window.mainloop()
         return
 
     @staticmethod
     def exitstart():
-        print("Exiting start screen")
         start_window = startscreen.start_window
         start_window.destroy()
         return
@@ -317,18 +328,18 @@ class homescreen:
     def get_model_result(str, arglist):
         result = None
         if str == 'Decision tree':
-            result = decision_tree.predict(arglist)
+            result  = decision_tree.predict(arglist)
         elif str == 'Naive-Bayes':
             result = naivebayes.predict(arglist)
         elif str == 'SVM':
             result = svm.predict(arglist)
         elif str == 'KNN':
             result = knn.predict(arglist)
-        elif str == 'Random forest':
+        elif str == 'Random forest (%)':
             result = random_forest.predict(arglist)
         elif str == 'Logistic regression':
             result = logistic_regression.predict(arglist)
-        elif str == 'Sequential (DNN)':
+        elif str == 'Sequential (DNN) (%)':
             result = dlseq.predict(arglist)
         print(result)
         homescreen.result = result
@@ -339,7 +350,7 @@ class homescreen:
         import tkinter as tk
         from tkinter import Label, Radiobutton, ttk
 
-        print("Homescreen.run")
+        print("Home screen")
         root_window = tk.Tk()
         root_window.geometry('700x450+500+200')
         root_window.title("Depresso Detecto 3000")
@@ -404,7 +415,11 @@ class homescreen:
         cb_option = tk.StringVar() #combobox
         cb = ttk.Combobox(root_window, textvariable = cb_option, state = 'readonly')
         cb.place(x=30, y=40)
-        cb['values'] = ('Decision tree','Naive-Bayes','SVM','KNN','Random forest','Logistic regression','Sequential (DNN)')
+
+        if(load_dnn_flag):
+            cb['values'] = ('Decision tree','Naive-Bayes','SVM','KNN','Random forest (%)','Logistic regression','Sequential (DNN) (%)')
+        else:
+            cb['values'] = ('Decision tree','Naive-Bayes','SVM','KNN','Random forest (%)','Logistic regression')
         cb.current(0)
 
         '''menu = Menu(root_window) #menu button to retrain sequential model
@@ -439,18 +454,22 @@ class homescreen:
             result_label = Label(root_window, font=('arial', 10, 'normal'))
             label_text = ''
             label_color = '#000000'
-            if homescreen.result==None:
+            if homescreen.result[0]==None:
                 label_text = "Error!"
                 label_color = '#800000'
-            elif homescreen.result == 1:
+            elif homescreen.result[0] == 1:
                 label_text = "High probability of depression"
+                if homescreen.result[1] != -1:
+                    label_text = label_text + ": " + str(int(homescreen.result[1]*100)) + "%"
                 label_color = '#800000'
-            elif homescreen.result == 0:
+            elif homescreen.result[0] == 0:
                 label_text = "Low probability of depression"
+                if homescreen.result[1] != -1:
+                    label_text = label_text + ": " + str(int(homescreen.result[1]*100)) + "%"
                 label_color = '#138000'
             result_label = Label(text=label_text, fg = label_color)
             result_label.place(x=370, y=330)
-            result_label.after(5000, result_label.destroy)
+            result_label.after(4000, result_label.destroy)
             return #0,1,1,1,1,1,1,1,1,1,1,0,0
 
         tk.Button(root_window, text = "Submit", command = getRbValue).place(x=310, y=400) #submit button
