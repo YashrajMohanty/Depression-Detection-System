@@ -158,7 +158,7 @@ class random_forest:
         model = RandomForestRegressor()
         model.fit(x_train, y_train) 
         random_forest.model = model
-        # Due to a bitch-ass error, accuracy for random forest is unavailable
+        # Due to an error, accuracy for random forest is unavailable
         #print("Random forest accuracy:", metrics.accuracy_score(y_test, y_pred))
         return
 

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Are you depressed?</title>
+        <link rel="stylesheet" href="DepressoWeb.css">
+    </head>
+    <script src="DepressoWeb.js"></script>
+    <body>
+        <section class="content">
+            <form>
+                <h2>Depresso detecto 3000</h2>
+                
+                <div class="radio" id="radio-left">
+                    <fieldset>
+                        <legend>Environmental satisfaction</legend>
+                        <span>
+                            <input type="radio" id="yes" name="envsat" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="envsat" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Achievement satisfaction</legend>
+                        <span>
+                            <input type="radio" id="yes" name="achievesat" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="achievesat" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Financial stress</legend>
+                        <span>
+                            <input type="radio" id="yes" name="finstress" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="finstress" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Insomnia</legend>
+                        <span>
+                            <input type="radio" id="yes" name="insomnia" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="insomnia" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Anxiety</legend>
+                        <span>
+                            <input type="radio" id="yes" name="anxiety" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="anxiety" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Deprived</legend>
+                        <span>
+                            <input type="radio" id="yes" name="deprived" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="deprived" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Abused</legend>
+                        <span>
+                            <input type="radio" id="yes" name="abused" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="abused" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                </div>
+
+                <div class="radio" id="radio-right">
+                    <fieldset>
+                        <legend>Cheated</legend>
+                        <span>
+                            <input type="radio" id="yes" name="cheated" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="cheated" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Threatened</legend>
+                        <span>
+                            <input type="radio" id="yes" name="threatened" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="threatened" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Suicidal</legend>
+                        <span>
+                            <input type="radio" id="yes" name="suicidal" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="suicidal" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Inferiority</legend>
+                        <span>
+                            <input type="radio" id="yes" name="inferiority" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="inferiority" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Recent conflict</legend>
+                        <span>
+                            <input type="radio" id="yes" name="reccon" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="reccon" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Recent loss</legend>
+                        <span>
+                            <input type="radio" id="yes" name="recloss" value="1">
+                            <label for="yes">Yes</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="no" name="recloss" value="0" checked>
+                            <label for="no">No</label>
+                        </span>
+                    </fieldset>
+                    <span>
+                        <label for="model">Model:</label>
+                        <select id="model">
+                        <option value="1">Decision tree</option>
+                        <option value="2">Naive-Bayes</option>
+                        <option value="3">SVM</option>
+                        <option value="4">KNN</option>
+                        <option value="5">Random forest(%)</option>
+                        <option value="6">Logistic regression</option>
+                        <option value="7">Sequential(DNN)(%)</option>
+                        </select>
+                    </span>
+                    <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
+                </div>
+            </form>
+        </section>
+        
+    </body>
+</html>
