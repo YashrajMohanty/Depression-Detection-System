@@ -3,8 +3,6 @@ import flask.json as json
 import numpy as np
 import DepressoDetecto
 
-model = DepressoDetecto.ml()
-
 app = Flask(__name__)
 # flask --app server run
 @app.route("/<data>", methods=['GET'])
@@ -19,7 +17,6 @@ def get_js_data(data):
     model_num = json_resp['model']
     pred_json = request_handler(values, model_num)
     pred_json = jsonify(pred_json)
-    #jsonResp = {'value': 1, 'perc': 0.94}
     return pred_json
 
 
@@ -45,6 +42,6 @@ def request_handler(values, model_num):
     elif model_num == 7:
         model_type = 'dnn'
 
-    prediction = model.predict(values, model_type)
+    prediction = DepressoDetecto.predict(values, model_type)
     prediction = float(prediction)
     return {'prediction' : prediction}

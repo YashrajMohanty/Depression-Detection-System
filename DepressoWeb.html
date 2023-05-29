@@ -6,10 +6,15 @@
     </head>
     <script src="DepressoWeb.js"></script>
     <body>
-        <section class="content">
-            <form>
-                <h2>Depresso detecto 3000</h2>
-                
+        <nav><h2>Depresso detecto 3000</h2></nav>
+
+        <div class="abstract-parent">
+            <div class="abstract">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="radio-parent">
                 <div class="radio" id="radio-left">
                     <fieldset>
                         <legend>Environmental satisfaction</legend>
@@ -171,11 +176,11 @@
                     </span>
                     <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
                 </div>
-            </form>
+        </div>
+        <div class="result-parent">
             <div class="result">
                 <p>Submit to generate results.</p>
             </div>
-        </section>
-        
+        </div>
     </body>
 </html>
