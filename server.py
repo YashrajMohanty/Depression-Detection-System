@@ -3,6 +3,8 @@ import flask.json as json
 import numpy as np
 import DepressoDetecto
 
+model = DepressoDetecto.ml()
+
 app = Flask(__name__)
 # flask --app server run
 @app.route("/<data>", methods=['GET'])
@@ -43,7 +45,6 @@ def request_handler(values, model_num):
     elif model_num == 7:
         model_type = 'dnn'
 
-    model = DepressoDetecto.ml(model_type)
-    prediction = model.predict(values)
+    prediction = model.predict(values, model_type)
     prediction = float(prediction)
     return {'prediction' : prediction}

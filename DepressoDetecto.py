@@ -14,13 +14,9 @@ from keras.layers import Dense
 warnings.filterwarnings("ignore", category=UserWarning) #suppress UserWarning
 
 '''Data cleaning'''
-df = pd.read_csv("Depresso.csv")
-df.drop(['AGERNG', 'GENDER', 'EDU', 'PROF', 'MARSTS', 'RESDPL', 'LIVWTH',  'DEBT', 'PHYEX', 'SMOKE', 'DRINK',
-        'ILLNESS', 'PREMED', 'EATDIS', 'AVGSLP', 'TSSN', 'WRKPRE'], axis=1, inplace=True)
+df = pd.read_csv("DepressoFinal.csv")
+categ = list(df.columns)
 
-categ = ['ENVSAT', 'POSSAT', 'FINSTR', 'INSOM', 'ANXI',
-        'DEPRI', 'ABUSED', 'CHEAT', 'THREAT', 'SUICIDE',
-        'INFER', 'CONFLICT', 'LOST', 'DEPRESSED']
 # label_encoder object knows how to understand word labels...apparently
 le = preprocessing.LabelEncoder()
 # Encode Categorical Columns
@@ -30,44 +26,50 @@ y = df['DEPRESSED']
 
 
 class ml:
-    def __init__(self, model_type):
+    def __init__(self):
         
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=109)
 
-        if model_type == 'decision tree':
-            model = DecisionTreeClassifier(criterion = 'entropy', random_state = 0) # decision tree
-        elif model_type == 'naive bayes': 
-            model = GaussianNB()    # naive-bayes
-        elif model_type == 'svm':
-            model = SVC(decision_function_shape='ovo')  # SVM
-        elif model_type == 'knn':
-            model= KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2 )    # KNN
-        elif model_type == 'random forest':
-            model = RandomForestRegressor() # random forest
-        elif model_type == 'logistic regression':
-            model = LogisticRegression()    # logistic regression
-        elif model_type == 'dnn':
-            model = self.check_for_dnn()
-        else:
-            raise Exception("Model name parameter is invalid!")
-        if model_type != 'dnn':
+        self.dec_tree = DecisionTreeClassifier(criterion = 'entropy', random_state = 0) # decision tree
+        self.nb = GaussianNB()    # naive-bayes
+        self.svm = SVC(decision_function_shape='ovo')  # SVM
+        self.knn= KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2 )    # KNN
+        self.random_forest = RandomForestRegressor() # random forest
+        self.logistic_reg = LogisticRegression()    # logistic regression
+        self.dnn = self._check_for_dnn()
+        
+        for model in [self.dec_tree, self.nb, self.svm, self.knn, self.random_forest, self.logistic_reg]:
             model.fit(x_train, y_train)
 
-        self.model_type = model_type
-        self.model = model
 
+    def predict(self, arglist, model_type):
+        if model_type == 'decision tree':
+            model = self.dec_tree
+        elif model_type == 'naive bayes': 
+            model = self.nb
+        elif model_type == 'svm':
+            model = self.svm
+        elif model_type == 'knn':
+            model = self.knn
+        elif model_type == 'random forest':
+            model = self.random_forest
+        elif model_type == 'logistic regression':
+            model = self.logistic_reg
+        elif model_type == 'dnn':
+            model = self.dnn
+        else:
+            raise Exception("model_type parameter invalid!")
 
-    def predict(self, arglist):
-        if self.model_type == 'dnn':
-            y_pred = self.model.predict(arglist)[0]
+        if model_type == 'dnn':
+            y_pred = model.predict(arglist)[0]
             y_pred = y_pred.tolist()[0]
             y_pred = round(y_pred, 2)
         else:
-            y_pred = self.model.predict(arglist)[0]
+            y_pred = model.predict(arglist)[0]
         return y_pred
 
 
-    def check_for_dnn(self):
+    def _check_for_dnn(self):
         try:
             model = self._load_dnn()
         except:
