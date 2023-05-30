@@ -25,6 +25,22 @@ function getModel(){
 	return option;
 }
 
+function displayResults(result){
+    let result_text
+    if (result > 0.5){
+        result_text = 'High probability of depression';
+    } else{
+        result_text = 'Low probability of depression';
+    }
+    let textEl = document.getElementById("result");
+    textEl = textEl.querySelector("p");
+    if (Number.isInteger(result)){
+        textEl.innerHTML= result_text;
+    } else{
+        textEl.innerHTML= result_text + ": " + (result * 100) + "%";
+    }
+}
+
 async function submitResults(){
 	values = getValues();
 	model = getModel();
@@ -35,5 +51,5 @@ async function submitResults(){
     const resp = await fetch('http://127.0.0.1:5000/'+json_str)
     .then(response => response.json())
     .then(json => {return json;})
-	console.log(resp['prediction']);
+    displayResults(resp['prediction']);
 }

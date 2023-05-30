@@ -3,166 +3,213 @@
     <head>
         <title>Are you depressed?</title>
         <link rel="stylesheet" href="DepressoWeb.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <script src="DepressoWeb.js"></script>
     <body>
-        <nav><h2>Depresso detecto 3000</h2></nav>
+        <nav><h2>ML for Mental Health</h2></nav>
 
-        <div class="abstract-parent">
-            <div class="abstract">
-                <p></p>
+            <div id="abstract-1">
+                <div id="abstract-1-text">
+                    <p>
+                        Depression is a common and serious medical illness
+                        that negatively affects how you feel, the way you
+                        think and how you act. Depression causes feelings
+                        of sadness and/or a loss of interest in activities
+                        you once enjoyed.
+                    </p>
+                    <p>    
+                        It can lead to a variety of emotional
+                        and physical problems and can decrease your ability to
+                        function at work and at home. Other symptoms may include
+                        changes in appetite and weight, sleep disturbances, fatigue,
+                        difficulty concentrating, feelings of guilt or worthlessness
+                        and more.
+                    </p>
+                    <p>
+                        Fortunately, depression is a treatable condition. While it can be a
+                        challenging and sometimes chronic illness, the majority of people
+                        with depression can find relief and improve their quality of life
+                        with appropriate treatment.
+                    </p>
+                </div>
             </div>
-        </div>
+
+            <div id="abstract-2">
+                <div id="abstract-2-text">
+                    <p>
+                        Machine learning is a branch of artificial intelligence in
+                        computer science which makes use of data algorithms
+                        to emulate human learning, gradually bettering it's accuracy
+                        and efficiency. Machine learning has the potential to play a
+                        significant role in improving mental health care in several ways:
+                        <ul>
+                            <li>Early detection and diagnosis</li>
+                            <li>Personalized treatment plans</li>
+                            <li>Predictive analytics</li>
+                            <li>Sentiment analysis</li>
+                            <li>Virtual mental health assistants</li>
+                        </ul>
+                        To give a glimpse into what machine learning can do,
+                        you can try the depression prediction system below.
+                        Select the symptoms that apply, select a model of your
+                        choice and submit the results to generate a prediction.
+                    </p>
+
+                </div>
+            </div>
 
         <div class="radio-parent">
                 <div class="radio" id="radio-left">
                     <fieldset>
                         <legend>Environmental satisfaction</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="envsat" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="envsat" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Achievement satisfaction</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="achievesat" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="achievesat" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Financial stress</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="finstress" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="finstress" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Insomnia</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="insomnia" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="insomnia" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Anxiety</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="anxiety" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="anxiety" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Deprived</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="deprived" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="deprived" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Abused</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="abused" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="abused" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                 </div>
 
                 <div class="radio" id="radio-right">
                     <fieldset>
                         <legend>Cheated</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="cheated" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="cheated" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Threatened</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="threatened" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="threatened" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Suicidal</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="suicidal" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="suicidal" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Inferiority</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="inferiority" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="inferiority" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Recent conflict</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="reccon" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="reccon" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Recent loss</legend>
-                        <span>
+                        <div>
                             <input type="radio" id="yes" name="recloss" value="1">
                             <label for="yes">Yes</label>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <input type="radio" id="no" name="recloss" value="0" checked>
                             <label for="no">No</label>
-                        </span>
+                        </div>
                     </fieldset>
-                    <span>
+                    <div id="radio-options">
                         <label for="model">Model:</label>
                         <select id="model">
                         <option value="1">Decision tree</option>
@@ -173,14 +220,25 @@
                         <option value="6">Logistic regression</option>
                         <option value="7">Sequential(DNN)(%)</option>
                         </select>
-                    </span>
-                    <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
+                        <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
+                    </div>
                 </div>
         </div>
-        <div class="result-parent">
-            <div class="result">
-                <p>Submit to generate results.</p>
-            </div>
+
+        <div id="result">
+            <p>
+                Choose a model of your choice and submit to generate results.<br>
+                (%) implies that the model provides a percentage probability.
+            </p>
         </div>
+
+        <div id="footer">
+            <p>
+                The "ML for Mental Health" website has been created and maintained 
+                by <a href="https://github.com/YashrajMohanty" target="_blank">Yashraj Mohanty</a><br>
+                <a href="https://github.com/YashrajMohanty/Depression-Detection-System" target="_blank">Source (Github)</a>
+            </p>
+        </div>
+
     </body>
 </html>
