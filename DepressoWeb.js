@@ -75,10 +75,11 @@ async function submitResults(){
 	model = getModel();
 	const obj = {"values" : values, "model" : model};
 	const json_str = JSON.stringify(obj);
+    const url = ''
 
     try{
 
-        const resp = await fetch('http://127.0.0.1:5000/'+json_str, {signal: AbortSignal.timeout(3000)})
+        const resp = await fetch(url + json_str, {signal: AbortSignal.timeout(3000)})
         .then(response => response.json())
         .then(json => {return json});
         displayResults(resp['prediction'], model);
