@@ -13,16 +13,16 @@ It consists of the following:
 Here's a glimpse of the frontend.
 
 
-![Website frontend showcase](github_images/website_frontend_showcase.png)
+![Website frontend showcase](github_images/website_frontend.png)
 
 
 Here's where we input the information.
 
 
-![Website input showcase](github_images/website_input_showcase.png)
+![Website input showcase](github_images/website_input.png)
 
 
 And the results are displayed here.
 
 
-![Website results showcase](github_images/website_results_showcase.png)
+![Website results showcase](github_images/website_results.png)
