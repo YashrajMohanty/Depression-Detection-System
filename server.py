@@ -21,9 +21,7 @@ def get_js_data(data):
 
 
 def request_handler(values, model_num):
-    model_num = int(model_num)
     model_type = None
-    values = list(map(int, values))
     values = np.array(values)
     values = values.reshape(1,-1)
 

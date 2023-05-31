@@ -15,41 +15,76 @@ function getValues(){
     const reccon = radio.querySelector("input[name='reccon']:checked").value;
     const recloss = radio.querySelector("input[name='recloss']:checked").value;
 
-    const values = [envsat,achievesat,finstress,insomnia,anxiety,deprived,abused,cheated,threatened,suicidal,inferiority,reccon,recloss];
-    return values
+    let values = [envsat,achievesat,finstress,insomnia,anxiety,deprived,abused,cheated,threatened,suicidal,inferiority,reccon,recloss];
+    values = values.map(x => Number(x));
+    return values;
 }
 
 function getModel(){
 	const radio = document.getElementById("radio-right");
-	const option = radio.querySelector("#model").value;
+	let option = radio.querySelector("#model").value;
+    option = Number(option)
 	return option;
 }
 
-function displayResults(result){
+function displayResults(result, model){
+
     let result_text
+
     if (result > 0.5){
         result_text = 'High probability of depression';
     } else{
         result_text = 'Low probability of depression';
     }
+
+    if (model == 5|model == 7){
+        result_text = result_text + ": " + (result * 100) + "%";
+    }
+
+    if (result === -1){
+        result_text = "Connection timed out!";
+    }
+
     let textEl = document.getElementById("result");
     textEl = textEl.querySelector("p");
-    if (Number.isInteger(result)){
-        textEl.innerHTML= result_text;
-    } else{
-        textEl.innerHTML= result_text + ": " + (result * 100) + "%";
+    textEl.innerHTML= result_text;
+}
+
+window.onscroll = function(){
+    navScrollAnimation();
+};
+function navScrollAnimation(){
+    const navText = document.getElementById("nav-text");
+    const navBar = document.querySelector("nav");
+    const navHeight = 80; // 80px
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollPercent = winScroll / height;
+    scrollPercent = scrollPercent * 5; // reached 100% in 20% of the webpage
+    if (scrollPercent > 1){
+        scrollPercent = 1;
     }
+    navText.style.opacity = 1 - scrollPercent; // navbar text opacity
+    let newNavHeight = navHeight - (scrollPercent * navHeight * 0.3); // navbar shrinks to 70% (1-0.3) of its size
+    newNavHeight = newNavHeight+"px";
+    navBar.style.height = newNavHeight;
 }
 
 async function submitResults(){
 	values = getValues();
 	model = getModel();
-
 	const obj = {"values" : values, "model" : model};
 	const json_str = JSON.stringify(obj);
 
-    const resp = await fetch('http://127.0.0.1:5000/'+json_str)
-    .then(response => response.json())
-    .then(json => {return json;})
-    displayResults(resp['prediction']);
+    try{
+
+        const resp = await fetch('http://127.0.0.1:5000/'+json_str, {signal: AbortSignal.timeout(3000)})
+        .then(response => response.json())
+        .then(json => {return json});
+        displayResults(resp['prediction'], model);
+
+    } catch(err){
+        displayResults(-1, model);
+    }
+
 }

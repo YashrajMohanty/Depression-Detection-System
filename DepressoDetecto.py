@@ -91,7 +91,7 @@ def predict(arglist, model_type):
 
 if __name__ == '__main__':
     from server import request_handler
-    values = ["0","0","0","1","0","1","0","1","1","1","0","0","0"]
-    model_num = "7"
+    values = [0,0,0,1,0,1,0,1,1,1,0,0,0]
+    model_num = 7
     pred = request_handler(values, model_num)
     print(pred)

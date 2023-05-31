@@ -9,7 +9,14 @@
     </head>
     <script src="DepressoWeb.js"></script>
     <body>
-        <nav><h2>ML for Mental Health</h2></nav>
+        <nav>
+            <div>
+                <img src="WebImages/MLMHicon.png" id="nav-icon">
+            </div>
+            <div>
+                <h2 id="nav-text">ML for Mental Health</h2>
+            </div>
+        </nav>
 
             <div id="abstract-1">
                 <div id="abstract-1-text">
@@ -64,7 +71,7 @@
         <div class="radio-parent">
                 <div class="radio" id="radio-left">
                     <fieldset>
-                        <legend>Environmental satisfaction</legend>
+                        <legend>Are you satisfied with the state of your environment?</legend>
                         <div>
                             <input type="radio" id="yes" name="envsat" value="1">
                             <label for="yes">Yes</label>
@@ -75,7 +82,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Achievement satisfaction</legend>
+                        <legend>Are you satisfied with your personal achievements?</legend>
                         <div>
                             <input type="radio" id="yes" name="achievesat" value="1">
                             <label for="yes">Yes</label>
@@ -86,7 +93,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Financial stress</legend>
+                        <legend>Are you experiencing financial stress?</legend>
                         <div>
                             <input type="radio" id="yes" name="finstress" value="1">
                             <label for="yes">Yes</label>
@@ -97,7 +104,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Insomnia</legend>
+                        <legend>Do you suffer from insomnia?</legend>
                         <div>
                             <input type="radio" id="yes" name="insomnia" value="1">
                             <label for="yes">Yes</label>
@@ -108,7 +115,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Anxiety</legend>
+                        <legend>Do you suffer from anxiety?</legend>
                         <div>
                             <input type="radio" id="yes" name="anxiety" value="1">
                             <label for="yes">Yes</label>
@@ -119,7 +126,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Deprived</legend>
+                        <legend>Do you feel you are deprived of affection?</legend>
                         <div>
                             <input type="radio" id="yes" name="deprived" value="1">
                             <label for="yes">Yes</label>
@@ -130,7 +137,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Abused</legend>
+                        <legend>Have you been recently subject to abuse?</legend>
                         <div>
                             <input type="radio" id="yes" name="abused" value="1">
                             <label for="yes">Yes</label>
@@ -144,7 +151,7 @@
 
                 <div class="radio" id="radio-right">
                     <fieldset>
-                        <legend>Cheated</legend>
+                        <legend>Have you been recently cheated on?</legend>
                         <div>
                             <input type="radio" id="yes" name="cheated" value="1">
                             <label for="yes">Yes</label>
@@ -155,7 +162,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Threatened</legend>
+                        <legend>Have you been recently threatened?</legend>
                         <div>
                             <input type="radio" id="yes" name="threatened" value="1">
                             <label for="yes">Yes</label>
@@ -166,7 +173,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Suicidal</legend>
+                        <legend>Do you experience suicidal thoughts?</legend>
                         <div>
                             <input type="radio" id="yes" name="suicidal" value="1">
                             <label for="yes">Yes</label>
@@ -177,7 +184,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Inferiority</legend>
+                        <legend>Do you experience feelings of inferiority over others?</legend>
                         <div>
                             <input type="radio" id="yes" name="inferiority" value="1">
                             <label for="yes">Yes</label>
@@ -188,7 +195,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Recent conflict</legend>
+                        <legend>Have you experienced a recent conflict with someone?</legend>
                         <div>
                             <input type="radio" id="yes" name="reccon" value="1">
                             <label for="yes">Yes</label>
@@ -199,7 +206,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Recent loss</legend>
+                        <legend>Have you recently experienced the loss of a loved one?</legend>
                         <div>
                             <input type="radio" id="yes" name="recloss" value="1">
                             <label for="yes">Yes</label>
@@ -212,13 +219,13 @@
                     <div id="radio-options">
                         <label for="model">Model:</label>
                         <select id="model">
-                        <option value="1">Decision tree</option>
-                        <option value="2">Naive-Bayes</option>
-                        <option value="3">SVM</option>
-                        <option value="4">KNN</option>
-                        <option value="5">Random forest(%)</option>
-                        <option value="6">Logistic regression</option>
-                        <option value="7">Sequential(DNN)(%)</option>
+                            <option value="1">Decision tree</option>
+                            <option value="2">Naive-Bayes</option>
+                            <option value="3">SVM</option>
+                            <option value="4">KNN</option>
+                            <option value="5">Random forest (%)</option>
+                            <option value="6">Logistic regression</option>
+                            <option value="7">DNN (%)</option>
                         </select>
                         <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
                     </div>
@@ -236,6 +243,7 @@
             <p>
                 The "ML for Mental Health" website has been created and maintained 
                 by <a href="https://github.com/YashrajMohanty" target="_blank">Yashraj Mohanty</a><br>
+                None of the data entered on this site is stored<br>
                 <a href="https://github.com/YashrajMohanty/Depression-Detection-System" target="_blank">Source (Github)</a>
             </p>
         </div>
