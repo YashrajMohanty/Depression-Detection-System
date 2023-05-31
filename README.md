@@ -10,9 +10,13 @@ It consists of the following:
 - **API**: A flask API that handles requests from the frontend and passes the information to the backend. On receiving results from the backend, returns it to the frontend.
 
 
-Here's a glimpse of the frontend.  
+Here's a glimpse of the frontend.
+
+
 ![Website frontend showcase](github_images/website_frontend_showcase.png)
 
 
-And here's where we input the information.  
+And here's where we input the information.
+
+
 ![Website input showcase](github_images/website_input_showcase.png)
