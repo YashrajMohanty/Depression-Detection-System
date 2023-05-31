@@ -10,6 +10,9 @@ It consists of the following:
 - **API**: A flask API that handles requests from the frontend and passes the information to the backend. On receiving results from the backend, returns it to the frontend.
 
 
+NOTE: In `DepressoWeb.js`, add your server URL in the `url` variable of the `submitResults` function. 
+
+
 Here's a glimpse of the frontend.
 
 
