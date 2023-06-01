@@ -34,4 +34,5 @@ And the results are displayed here.
 
 
 ## Additional details
-Contains navigation bar animations which respond to scrolling.
+Contains navigation bar animations which respond to scrolling.  
+Results div flashes different colors in response to the result.
