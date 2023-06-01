@@ -2,12 +2,14 @@
     --secondary-gold: #ffe3ca;
     --secondary-gray: rgb(234, 234, 234);
     --gold-text: rgb(160, 116, 45);
+    --gray-text: rgb(70, 70, 70);
 }
 
 body {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
     background-color: white;
+    color: var(--gray-text);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -40,11 +42,11 @@ p {
 }
 a {
     font-weight: 700;
-    color: black;
+    color: var(--gray-text);
     text-decoration: none;
 }
     a:hover {
-        color: rgb(85, 85, 85);
+        color: var(--gold-text);
     }
 
 

@@ -23,12 +23,12 @@ function getValues(){
 function getModel(){
 	const radio = document.getElementById("radio-right");
 	let option = radio.querySelector("#model").value;
-    option = Number(option)
+    option = Number(option);
 	return option;
 }
 
 function displayResults(result, model){
-
+    changeResultsDivColor(result);
     let result_text
 
     if (result > 0.5){
@@ -68,6 +68,26 @@ function navScrollAnimation(){
     let newNavHeight = navHeight - (scrollPercent * navHeight * 0.3); // navbar shrinks to 70% (1-0.3) of its size
     newNavHeight = newNavHeight+"px";
     navBar.style.height = newNavHeight;
+}
+
+function changeResultsDivColor(result){
+    const resultDiv = document.getElementById("result");
+    const currentColor = resultDiv.getAttribute('style','background');
+
+    let newColor;
+    if (result > 0.5){
+        newColor = '#ffcfcf'; //red
+    }
+    else {
+        newColor = '#c6ffb5'; //green
+    }
+    if (result === -1){
+        newColor = '#fcd9a7'; //amber
+    }
+
+    keyFrames = [{background: currentColor},{background: newColor},{background: currentColor}];
+    animTiming = {duration: 1000, iterations: 1};
+    resultDiv.animate(keyFrames, animTiming);
 }
 
 async function submitResults(){
