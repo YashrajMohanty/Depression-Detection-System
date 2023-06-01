@@ -99,7 +99,7 @@ async function submitResults(){
 
     try{
 
-        const resp = await fetch(url + json_str, {signal: AbortSignal.timeout(3000)})
+        const resp = await fetch(url + json_str, {signal: AbortSignal.timeout(2000)})
         .then(response => response.json())
         .then(json => {return json});
         displayResults(resp['prediction'], model);

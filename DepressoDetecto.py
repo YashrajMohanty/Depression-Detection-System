@@ -25,6 +25,7 @@ x = df.drop('DEPRESSED', axis = 1)
 y = df['DEPRESSED']
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=109)
+dnn_force_train = False # forces model to be trained even if its already available
 
 def _check_for_dnn():
     try:
@@ -34,6 +35,8 @@ def _check_for_dnn():
     return model
 
 def _load_dnn():
+    if dnn_force_train:
+        raise Exception('dnn_force_train set to True')
     from keras.models import load_model
     model = load_model('seq_model')
     print("DNN loaded")
