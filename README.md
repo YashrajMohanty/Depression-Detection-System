@@ -1,4 +1,4 @@
-# Depression-Detection-System
+# Depression Detection System
 ## Overview
 This is a web app called "ML for Mental Health". It uses machine learning and deep learning models to predict if a person is susceptible to depression using symptoms as input.  
 Uses a variety of machine learning models like KNN, naive-bayes algorithm, random forest, logistic regression, SVM, decision tree as well as a feed forward DNN.
