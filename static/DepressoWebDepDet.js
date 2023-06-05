@@ -1,3 +1,5 @@
+const url = 'http://127.0.0.1:5000/depdet/'
+
 function getValues(){
     let radio = document.getElementById("radio-left");
     const envsat = radio.querySelector("input[name='envsat']:checked").value;
@@ -95,7 +97,6 @@ async function submitResults(){
 	model = getModel();
 	const obj = {"values" : values, "model" : model};
 	const json_str = JSON.stringify(obj);
-    const url = ''
 
     try{
 

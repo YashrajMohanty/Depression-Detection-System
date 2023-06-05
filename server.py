@@ -1,11 +1,16 @@
-from flask import Flask, after_this_request, jsonify
+from flask import Flask, after_this_request, jsonify, render_template
 import flask.json as json
 import numpy as np
 import DepressoDetecto
 
 app = Flask(__name__)
 # flask --app server run
-@app.route("/<data>", methods=['GET'])
+
+@app.route("/home", methods=['GET'])
+def get_home():
+    return render_template("DepressoWebHome.html")
+
+@app.route("/depdet/<data>", methods=['GET'])
 def get_js_data(data):
     @after_this_request
     def add_header(response):
@@ -18,6 +23,10 @@ def get_js_data(data):
     pred_json = request_handler(values, model_num)
     pred_json = jsonify(pred_json)
     return pred_json
+
+@app.route("/depdet", methods=['GET'])
+def get_depdet():
+    return render_template("DepressoWebDepDet.html")
 
 
 def request_handler(values, model_num):

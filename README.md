@@ -11,7 +11,7 @@ It consists of the following:
 
 
 ## Usage
-In `DepressoWeb.js`, add your server URL in the `url` variable of the `submitResults` function. 
+Launch on a browser with URL:`<server-url>/home` while the flask API is up.
 
 
 ## Results/Gallery

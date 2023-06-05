@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ML for Mental Health</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='DepressoWebHome.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='WebImages/MLMHtabicon.png') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <script src="{{ url_for('static', filename='DepressoWebHome.js') }}"></script>
+    <body>
+        <nav>
+            <div>
+                <img src="{{ url_for('static', filename='WebImages/MLMHicon.png') }}" id="nav-icon">
+            </div>
+            <div>
+                <h2 id="nav-text">ML for Mental Health</h2>
+            </div>
+        </nav>
+
+            <div id="abstract-1">
+                <div id="abstract-1-text">
+                    <p>
+                        Depression is a common and serious medical illness
+                        that negatively affects how you feel, the way you
+                        think and how you act. Depression causes feelings
+                        of sadness and/or a loss of interest in activities
+                        you once enjoyed.
+                    </p>
+                    <p>    
+                        It can lead to a variety of emotional
+                        and physical problems and can decrease your ability to
+                        function at work and at home. Other symptoms may include
+                        changes in appetite and weight, sleep disturbances, fatigue,
+                        difficulty concentrating, feelings of guilt or worthlessness
+                        and more.
+                    </p>
+                </div>
+            </div>
+
+            <div id="abstract-2">
+                <div id="abstract-2-text">
+                    <p>
+                        Machine learning is a branch of artificial intelligence in
+                        computer science which makes use of data algorithms
+                        to emulate human learning, gradually bettering it's accuracy
+                        and efficiency. Machine learning has the potential to play a
+                        significant role in improving mental health care in several ways:
+                        <ul>
+                            <li>Early detection and diagnosis</li>
+                            <li>Personalized treatment plans</li>
+                            <li>Predictive analytics</li>
+                            <li>Sentiment analysis</li>
+                            <li>Virtual mental health assistants</li>
+                        </ul>
+                        To give a glimpse into what machine learning can do,
+                        you can try our depression prediction system
+                        <a href="http://127.0.0.1:5000/depdet">here</a>.
+                    </p>
+
+                </div>
+            </div>
+
+            <div id="abstract-3">
+
+                <div class="abstract-3-text">
+                    <p>
+                        Depression affects an estimated one in 15 adults (6.7%) in any
+                        given year. And one in six people (16.6%) will experience
+                        depression at some time in their life. Depression can occur at
+                        any time, but on average, first appears during the late teens
+                        to mid-20s.
+                    </p>
+                    <img src="{{ url_for('static', filename='WebImages/dep1.png') }}">
+                </div>
+
+                <div class="abstract-3-text">
+                    <p>
+                        Being sad is not the same as having depression. Both grief and
+                        depression may involve intense sadness and withdrawal from usual
+                        activities. Grief and depression can co-exist. When grief and
+                        depression co-occur, the grief is more severe and lasts longer
+                        than grief without depression.
+                    </p>
+                    <img src="{{ url_for('static', filename='WebImages/dep2.png') }}">
+                </div>
+
+                <div class="abstract-3-text">
+                    <p>
+                        Fortunately, depression is a treatable condition. While it can be a
+                        challenging and sometimes chronic illness, the majority of people
+                        with depression can find relief and improve their quality of life
+                        with appropriate treatment. Between 80% and 90% percent of people
+                        with depression eventually respond well to treatment. Almost all
+                        patients gain some relief from their symptoms.
+                    </p>
+                    <img src="{{ url_for('static', filename='WebImages/dep3.png') }}">
+                </div>
+                
+            </div>
+
+        <div id="footer">
+            <p>
+                The "ML for Mental Health" website has been created and maintained 
+                by <a href="https://github.com/YashrajMohanty" target="_blank">Yashraj Mohanty</a><br>
+                None of the data entered on this site is stored<br>
+                <a href="https://github.com/YashrajMohanty/Depression-Detection-System" target="_blank">Source (Github)</a>
+            </p>
+        </div>
+
+    </body>
+</html>

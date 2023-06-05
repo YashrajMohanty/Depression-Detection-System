@@ -50,37 +50,6 @@ a {
     }
 
 
-#abstract-1 {
-    width: 90vw;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(90deg, var(--secondary-gold) 45%, rgba(255, 255, 255, 0) 60%), url(WebImages/SadBlondeTeenager.png) center center/cover no-repeat;
-    background-color: transparent;
-    border-radius: 15px;
-    margin-top: 100px;
-}
-    #abstract-1-text {
-        line-height: 25px;
-        color: var(--gold-text);
-        padding: 20px;
-        width: 40%;
-    }
-#abstract-2 {
-    width: 90vw;
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 30%, var(--secondary-gray) 50%), url(WebImages/NeuralNetwork.png) center center/cover no-repeat;
-    background-color: transparent;
-    border-radius: 15px;
-}
-    #abstract-2-text {
-        line-height: 25px;
-        padding: 20px;
-        width: 45%;
-    }
-
-
 .radio-parent {
     display: flex;
     align-items: center;
@@ -116,7 +85,7 @@ a {
         }
 
 
-#result {
+.one-div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,6 +95,9 @@ a {
     text-align: center;
     border-radius: 10px;
 }
+    #description{
+        margin-top: 100px;
+    }
 
 
 #footer {
