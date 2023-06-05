@@ -11,26 +11,29 @@ It consists of the following:
 
 
 ## Usage
-Launch on a browser with URL:`<server-url>/home` while the flask API is up.
+Launch on a browser with URL: `<server-url>/home` while the flask API is up.
 
 
 ## Results/Gallery
-Here's a glimpse of the frontend.
+Here's a glimpse of the home page.
 
 
-![Website frontend showcase](github_images/website_frontend.png)
+![Website home page image 1](github_images/pg1_1.png)
+
+
+![Website home page image 2](github_images/pg1_2.png)
 
 
 Here's where we input the information.
 
 
-![Website input showcase](github_images/website_input.png)
+![Website input page image 1](github_images/pg2_1.png)
 
 
 And the results are displayed here.
 
 
-![Website results showcase](github_images/website_results.png)
+![Website input page image 2](github_images/pg2_2.png)
 
 
 ## Additional details
