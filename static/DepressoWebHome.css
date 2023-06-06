@@ -1,8 +1,8 @@
 :root {
     --secondary-gold: #ffe3ca;
     --secondary-gray: rgb(234, 234, 234);
-    --gold-text: rgb(200, 139, 68);
-    --gray-text: rgb(70, 70, 70);
+    --gold-text: rgb(187, 115, 32);
+    --gray-text: rgb(82, 82, 82);
 }
 
 body {
@@ -28,13 +28,10 @@ nav {
     align-items: center;
 }
     #nav-icon {
-        position: relative;
-        margin-left: 10px;
+        margin-left: 20px;
+        margin-right: 10px;
         height: 35px;
         width: 35px;
-    }
-    #nav-text {
-        opacity: 1;
     }
         
 p {
@@ -87,8 +84,7 @@ a {
     .abstract-3-text{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-content: center;
+        align-items: center;
         margin-left: 0;
         margin-right: 0;
         line-height: 25px;
@@ -104,9 +100,9 @@ a {
     .abstract-3-text img{
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20px;
+        margin-top: auto;
         margin-bottom: 20px;
-        width: 50%;
+        width: 40%;
     }
 
 

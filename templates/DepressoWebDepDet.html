@@ -11,14 +11,10 @@
     <script src="{{ url_for('static', filename='DepressoWebDepDet.js') }}"></script>
     <body>
         <nav>
-            <div>
-                <a href="http://127.0.0.1:5000/home">
-                    <img src="{{ url_for('static', filename='WebImages/MLMHicon.png') }}" id="nav-icon">
-                </a>
-            </div>
-            <div>
-                <h2 id="nav-text">ML for Mental Health</h2>
-            </div>
+            <a href="http://127.0.0.1:5000/home">
+                <img src="{{ url_for('static', filename='WebImages/MLMHicon.png') }}" id="nav-icon">
+            </a>
+            <h2 id="nav-text">ML for Mental Health</h2>
         </nav>
 
         <div class="one-div" id="description">
@@ -178,8 +174,8 @@
                         </div>
                     </fieldset>
                     <div id="radio-options">
-                        <label for="model">Model:</label>
-                        <select id="model">
+                        <select id="model-select">
+                            <option value="-1">---Select Model---</option>
                             <option value="1">Decision tree</option>
                             <option value="2">Naive-Bayes</option>
                             <option value="3">SVM</option>

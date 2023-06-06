@@ -11,7 +11,8 @@ It consists of the following:
 
 
 ## Usage
-Launch on a browser with URL: `<server-url>/home` while the flask API is up.
+Configure server url in the html and js files.  
+Launch on a browser with URL: `<server-url>/home` while the API is up.
 
 
 ## Results/Gallery

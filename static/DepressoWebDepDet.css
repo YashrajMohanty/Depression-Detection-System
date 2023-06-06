@@ -1,8 +1,8 @@
 :root {
     --secondary-gold: #ffe3ca;
     --secondary-gray: rgb(234, 234, 234);
-    --gold-text: rgb(160, 116, 45);
-    --gray-text: rgb(70, 70, 70);
+    --gold-text: rgb(187, 115, 32);
+    --gray-text: rgb(82, 82, 82);
 }
 
 body {
@@ -28,13 +28,13 @@ nav {
     align-items: center;
 }
     #nav-icon {
-        position: relative;
-        margin-left: 10px;
+        margin-left: 20px;
+        margin-right: 10px;
         height: 35px;
         width: 35px;
     }
-    #nav-text {
-        opacity: 1;
+    #nav-icon:hover {
+        opacity: 0.7;
     }
         
 p {
@@ -66,22 +66,26 @@ a {
         vertical-align: top;
     }
     fieldset {
-        border: 1px solid goldenrod;
+        margin-top: 10px;
+        border: 1px solid var(--gold-text);
         border-radius: 5px;
         display: flex;
+        accent-color: var(--gold-text);
     }
     #radio-options {
         margin-top: 40px;
+        display: flex;
+        justify-content: left;
     }
-    input[type="radio"]{
-
-        accent-color: var(--gold-text);
-    }
+        #model-select {
+            color: var(--gold-text);
+            text-align: center;
+            margin-right: 20px;
+        }
         #submit-btn {
+            color: var(--gold-text);
             padding-left: 20px;
             padding-right: 20px;
-            margin-left: 20px;
-            margin-top: 5px;
         }
 
 

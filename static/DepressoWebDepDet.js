@@ -24,7 +24,7 @@ function getValues(){
 
 function getModel(){
 	const radio = document.getElementById("radio-right");
-	let option = radio.querySelector("#model").value;
+	let option = radio.querySelector("#model-select").value;
     option = Number(option);
 	return option;
 }
@@ -95,11 +95,15 @@ function changeResultsDivColor(result){
 async function submitResults(){
 	values = getValues();
 	model = getModel();
+
+    if (model === -1){
+        return;
+    }
+
 	const obj = {"values" : values, "model" : model};
 	const json_str = JSON.stringify(obj);
 
     try{
-
         const resp = await fetch(url + json_str, {signal: AbortSignal.timeout(2000)})
         .then(response => response.json())
         .then(json => {return json});
@@ -108,5 +112,4 @@ async function submitResults(){
     } catch(err){
         displayResults(-1, model);
     }
-
 }
