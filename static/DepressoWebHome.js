@@ -1,12 +1,9 @@
 const url = 'http://127.0.0.1:5000/home/'
 
 window.onscroll = function(){
-    navScrollAnimation();
+    getScrollPercent();
 };
-function navScrollAnimation(){
-    const navText = document.getElementById("nav-text");
-    const navBar = document.querySelector("nav");
-    const navHeight = 80; // 80px
+function getScrollPercent(){
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrollPercent = winScroll / height;
@@ -14,8 +11,22 @@ function navScrollAnimation(){
     if (scrollPercent > 1){
         scrollPercent = 1;
     }
-    navText.style.opacity = 1 - scrollPercent; // navbar text opacity
+
+    //navbarShrink(scrollPercent);
+    navbarTextOpacityAnimation(scrollPercent);
+}
+
+/*
+function navbarShrinkAnimation(scrollPercent) {
+    const navBar = document.querySelector("nav");
+    const navHeight = 80; // 80px
     let newNavHeight = navHeight - (scrollPercent * navHeight * 0.3); // navbar shrinks to 70% (1-0.3) of its size
     newNavHeight = newNavHeight+"px";
     navBar.style.height = newNavHeight;
+}
+*/
+
+function navbarTextOpacityAnimation(scrollPercent) {
+    const navText = document.getElementById("nav-text");
+    navText.style.opacity = 1 - scrollPercent; // navbar text opacity
 }
