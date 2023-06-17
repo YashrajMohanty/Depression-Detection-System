@@ -30,9 +30,9 @@ function getModel(){
 }
 
 function displayResults(result, model){
-    changeResultsDivColor(result);
+    changeResultTextColor(result);
     let result_text
-
+    
     if (result > 0.5){
         result_text = 'High probability of depression';
     } else{
@@ -53,12 +53,9 @@ function displayResults(result, model){
 }
 
 window.onscroll = function(){
-    navScrollAnimation();
+    getScrollPercent();
 };
-function navScrollAnimation(){
-    const navText = document.getElementById("nav-text");
-    const navBar = document.querySelector("nav");
-    const navHeight = 80; // 80px
+function getScrollPercent(){
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrollPercent = winScroll / height;
@@ -66,30 +63,43 @@ function navScrollAnimation(){
     if (scrollPercent > 1){
         scrollPercent = 1;
     }
-    navText.style.opacity = 1 - scrollPercent; // navbar text opacity
-    let newNavHeight = navHeight - (scrollPercent * navHeight * 0.3); // navbar shrinks to 70% (1-0.3) of its size
-    newNavHeight = newNavHeight+"px";
-    navBar.style.height = newNavHeight;
+
+    //navbarShrink(scrollPercent);
+    navbarTextOpacityAnimation(scrollPercent);
 }
 
-function changeResultsDivColor(result){
+function navbarTextOpacityAnimation(scrollPercent) {
+    const navText = document.getElementById("nav-text");
+    navText.style.opacity = 1 - scrollPercent; // navbar text opacity
+}
+
+function changeResultTextColor(result){
     const resultDiv = document.getElementById("result");
-    const currentColor = resultDiv.getAttribute('style','background');
+    const currentColor = resultDiv.getAttribute('style','color');
 
     let newColor;
     if (result > 0.5){
-        newColor = '#ffcfcf'; //red
+        newColor = 'hsla(0, 100%, 50%, 0.8)'; //red
     }
     else {
-        newColor = '#c6ffb5'; //green
+        newColor = 'hsla(113, 98%, 49%, 0.8)'; //green
     }
     if (result === -1){
-        newColor = '#fcd9a7'; //amber
+        newColor = 'hsla(38, 93%, 72%, 0.8)'; //amber
     }
 
-    keyFrames = [{background: currentColor},{background: newColor},{background: currentColor}];
+    keyFrames = [{color: currentColor},{color: newColor},{color: currentColor}];
     animTiming = {duration: 1000, iterations: 1};
     resultDiv.animate(keyFrames, animTiming);
+}
+
+function flashOptionsBar(){
+    const optionsBar = document.getElementById('model-select');
+    const currentColor = optionsBar.getAttribute('style','background');
+    const newColor = 'hsla(43, 100%, 70%, 0.3)'
+    keyFrames = [{background: currentColor},{background: newColor},{background: currentColor}];
+    animTiming = {duration: 1000, iterations: 1};
+    optionsBar.animate(keyFrames, animTiming);
 }
 
 async function submitResults(){
@@ -97,6 +107,7 @@ async function submitResults(){
 	model = getModel();
 
     if (model === -1){
+        flashOptionsBar();
         return;
     }
 
