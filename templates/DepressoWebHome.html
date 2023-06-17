@@ -4,9 +4,6 @@
         <title>ML for Mental Health</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='DepressoWebHome.css') }}">
         <link rel="icon" href="{{ url_for('static', filename='WebImages/MLMHtabicon.png') }}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <script src="{{ url_for('static', filename='DepressoWebHome.js') }}"></script>
     <body>
@@ -15,8 +12,8 @@
             <h2 id="nav-text">ML for Mental Health</h2>
         </nav>
 
-            <div id="abstract-1">
-                <div id="abstract-1-text">
+            <div id="abstract-depression">
+                <div id="abstract-depression-text">
                     <p>
                         Depression is a common and serious medical illness
                         that negatively affects how you feel, the way you
@@ -35,8 +32,8 @@
                 </div>
             </div>
 
-            <div id="abstract-2">
-                <div id="abstract-2-text">
+            <div id="abstract-ml">
+                <div id="abstract-ml-text-1">
                     <p>
                         Machine learning is a branch of artificial intelligence in
                         computer science which makes use of data algorithms
@@ -50,17 +47,19 @@
                             <li>Sentiment analysis</li>
                             <li>Virtual mental health assistants</li>
                         </ul>
+                    </p>
+                </div>
+                <div id="abstract-ml-text-2">
+                    <p>
                         To get a glimpse into what machine learning can do,
                         you can try our depression prediction system
                         <a href="http://127.0.0.1:5000/depdet">here</a>.
                     </p>
-
                 </div>
             </div>
 
-            <div id="abstract-3">
-
-                <div class="abstract-3-text">
+            <div id="abstract-info">
+                <div class="abstract-info-text">
                     <p>
                         Depression affects an estimated one in 15 adults (6.7%) in any
                         given year. And one in six people (16.6%) will experience
@@ -71,7 +70,7 @@
                     <img src="{{ url_for('static', filename='WebImages/dep1.png') }}">
                 </div>
 
-                <div class="abstract-3-text">
+                <div class="abstract-info-text">
                     <p>
                         Being sad is not the same as having depression. Both grief and
                         depression may involve intense sadness and withdrawal from usual
@@ -82,18 +81,15 @@
                     <img src="{{ url_for('static', filename='WebImages/dep2.png') }}">
                 </div>
 
-                <div class="abstract-3-text">
+                <div class="abstract-info-text">
                     <p>
                         Fortunately, depression is a treatable condition. While it can be a
                         challenging and sometimes chronic illness, the majority of people
-                        with depression can find relief and improve their quality of life
-                        with appropriate treatment. Between 80% and 90% percent of people
-                        with depression eventually respond well to treatment. Almost all
-                        patients gain some relief from their symptoms.
+                        with depression(80-90%) can find relief and improve their quality of life
+                        with appropriate treatment.
                     </p>
                     <img src="{{ url_for('static', filename='WebImages/dep3.png') }}">
                 </div>
-                
             </div>
 
         <div id="footer">

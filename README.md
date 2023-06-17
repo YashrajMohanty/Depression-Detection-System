@@ -19,24 +19,10 @@ Launch on a browser with URL: `<server-url>/home` while the API is up.
 Here's a glimpse of the home page.
 
 
-![Website home page image 1](github_images/pg1_1.png)
-
-
-![Website home page image 2](github_images/pg1_2.png)
+![Website home page image](github_images/WebHome.png)
 
 
 Here's where we input the information.
 
 
-![Website input page image 1](github_images/pg2_1.png)
-
-
-And the results are displayed here.
-
-
-![Website input page image 2](github_images/pg2_2.png)
-
-
-## Additional details
-- Contains navigation bar animations which respond to scrolling
-- Results div flashes different colors in response to the result
+![Website input page image 1](github_images/WebDepDet.png)
