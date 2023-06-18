@@ -12,7 +12,7 @@ It consists of the following:
 
 ## Usage
 Configure server url in the html and js files.  
-Launch on a browser with URL: `<server-url>/home` while the API is up.
+Launch on a browser with URL: `<server-url>/home`.
 
 
 ## Results/Gallery
@@ -22,7 +22,12 @@ Here's a glimpse of the home page.
 ![Website home page image](github_images/WebHome.png)
 
 
-Here's where we input the information.
+Here's where we input the information and receive the results.
 
 
 ![Website input page image 1](github_images/WebDepDet.png)
+
+
+### Other details
+- Hovering over the machine learning section on the home page reveals the link to the form page.
+- Clicking on the nav bar icon in the form page returns you to the home page.

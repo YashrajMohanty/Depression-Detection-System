@@ -96,7 +96,7 @@ function changeResultTextColor(result){
 function flashOptionsBar(){
     const optionsBar = document.getElementById('model-select');
     const currentColor = optionsBar.getAttribute('style','background');
-    const newColor = 'hsla(43, 100%, 70%, 0.3)'
+    const newColor = 'hsla(43, 100%, 70%, 0.5)'
     keyFrames = [{background: currentColor},{background: newColor},{background: currentColor}];
     animTiming = {duration: 1000, iterations: 1};
     optionsBar.animate(keyFrames, animTiming);
