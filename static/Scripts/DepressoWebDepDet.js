@@ -1,29 +1,43 @@
-const url = 'http://127.0.0.1:5000/depdet/'
+const url = 'http://127.0.0.1:5000/depdet/';
+
+window.onscroll = function(){
+    getScrollPercent();
+};
+function getScrollPercent(){
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollPercent = winScroll / height;
+    scrollPercent = scrollPercent * 5; // reached 100% in 20% of the webpage
+    if (scrollPercent > 1){
+        scrollPercent = 1;
+    }
+
+    //navbarShrink(scrollPercent);
+    navbarTextOpacityAnimation(scrollPercent);
+}
+
+function navbarTextOpacityAnimation(scrollPercent) {
+    const navText = document.getElementById("nav-text");
+    navText.style.opacity = 1 - scrollPercent; // navbar text opacity
+}
 
 function getValues(){
-    let radio = document.getElementById("radio-left");
-    const envsat = radio.querySelector("input[name='envsat']:checked").value;
-    const achievesat = radio.querySelector("input[name='achievesat']:checked").value;
-    const finstress = radio.querySelector("input[name='finstress']:checked").value;
-    const insomnia = radio.querySelector("input[name='insomnia']:checked").value;
-    const anxiety = radio.querySelector("input[name='anxiety']:checked").value;
-    const deprived = radio.querySelector("input[name='deprived']:checked").value;
-    const abused = radio.querySelector("input[name='abused']:checked").value;
-    radio = document.getElementById("radio-right");
-    const cheated = radio.querySelector("input[name='cheated']:checked").value;
-    const threatened = radio.querySelector("input[name='threatened']:checked").value;
-    const suicidal = radio.querySelector("input[name='suicidal']:checked").value;
-    const inferiority = radio.querySelector("input[name='inferiority']:checked").value;
-    const reccon = radio.querySelector("input[name='reccon']:checked").value;
-    const recloss = radio.querySelector("input[name='recloss']:checked").value;
+    const radio = document.querySelector("div.radio-parent");
+    const nameList = ['envsat','achievesat','finstress','insomnia','anxiety','deprived','abused',
+                    'cheated','threatened','suicidal','inferiority','reccon','recloss'];
+    let values = [];
 
-    let values = [envsat,achievesat,finstress,insomnia,anxiety,deprived,abused,cheated,threatened,suicidal,inferiority,reccon,recloss];
+    nameList.forEach((name) => {
+        values.push(radio.querySelector("input[name="+ name +"]:checked".value));
+    });
+
     values = values.map(x => Number(x));
+    console.log(values);
     return values;
 }
 
 function getModel(){
-	const radio = document.getElementById("radio-right");
+	const radio = document.querySelector("div.radio-parent");
 	let option = radio.querySelector("#model-select").value;
     option = Number(option);
 	return option;
@@ -52,26 +66,7 @@ function displayResults(result, model){
     textEl.innerHTML= result_text;
 }
 
-window.onscroll = function(){
-    getScrollPercent();
-};
-function getScrollPercent(){
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrollPercent = winScroll / height;
-    scrollPercent = scrollPercent * 5; // reached 100% in 20% of the webpage
-    if (scrollPercent > 1){
-        scrollPercent = 1;
-    }
 
-    //navbarShrink(scrollPercent);
-    navbarTextOpacityAnimation(scrollPercent);
-}
-
-function navbarTextOpacityAnimation(scrollPercent) {
-    const navText = document.getElementById("nav-text");
-    navText.style.opacity = 1 - scrollPercent; // navbar text opacity
-}
 
 function changeResultTextColor(result){
     const resultDiv = document.getElementById("result");

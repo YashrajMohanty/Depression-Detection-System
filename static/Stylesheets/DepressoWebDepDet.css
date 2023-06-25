@@ -51,10 +51,13 @@ form > p {
 
 .radio-parent {
     display: flex;
+    padding-inline: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
 }
     fieldset {
-        margin-block: 10px;
+        flex-basis: 45%;
         margin-inline: 0;
         border: 1px solid var(--font-color);
         border-radius: 5px;
@@ -63,36 +66,25 @@ form > p {
     }
     #radio-options {
         display: flex;
-        justify-content: space-around;
-        margin-block: 40px;
-        gap: 30px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        flex-basis: 45%;
+        flex-wrap: wrap;
     }
-        #model-select {
+        #model-select, #submit-btn {
             background: hsla(0, 0%, 100%, 0);
             color: var(--font-color);
             border: 1px solid var(--font-color);
             border-radius: 5px;
-            padding: 10px;
-            flex-basis: 100%;
+            height: 50px;
+            flex-basis: 45%;
             text-align: center;
             transition: 0.3s;
         }
-            #model-select:hover {
+            #model-select:hover, #submit-btn:hover {
                 background: hsla(0, 0%, 100%, 0.1);
             }
             #model-select option {
                 color: hsl(0, 0%, 15%);
-            }
-        #submit-btn {
-            background: hsla(0, 0%, 100%, 0);
-            color: var(--font-color);
-            border: 1px solid var(--font-color);
-            border-radius: 5px;
-            padding: 10px;
-            flex-basis: 100%;
-            text-align: center;
-            transition: 0.3s;
-        }
-            #submit-btn:hover {
-                background: hsla(0, 0%, 100%, 0.1);
             }

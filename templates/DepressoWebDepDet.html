@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <title>MLMH | Depression Detection</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='DepressoWebDepDet.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Stylesheets/DepressoWebDepDet.css') }}">
         <link rel="icon" href="{{ url_for('static', filename='WebImages/MLMHtabicon.png') }}">
     </head>
-    <script src="{{ url_for('static', filename='DepressoWebDepDet.js') }}"></script>
+    <script src="{{ url_for('static', filename='Scripts/DepressoWebDepDet.js') }}"></script>
     <body>
         <nav>
             <a href="http://127.0.0.1:5000/home">
@@ -22,167 +22,174 @@
             </p>
 
             <div class="radio-parent">
-                    <div id="radio-left">
-                        <fieldset>
-                            <legend>Are you satisfied with the state of your environment?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="envsat" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="envsat" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Are you satisfied with your personal achievements?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="achievesat" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="achievesat" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Are you experiencing financial stress?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="finstress" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="finstress" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Do you suffer from insomnia?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="insomnia" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="insomnia" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Do you suffer from anxiety?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="anxiety" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="anxiety" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Do you feel you are deprived of affection?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="deprived" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="deprived" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Have you been recently subject to abuse?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="abused" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="abused" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
+                <fieldset>
+                    <legend>Are you satisfied with the state of your environment?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="envsat" value="1">
+                        <label for="yes">Yes</label>
                     </div>
+                    <div>
+                        <input type="radio" id="no" name="envsat" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
 
-                    <div id="radio-right">
-                        <fieldset>
-                            <legend>Have you been recently cheated on?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="cheated" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="cheated" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Have you been recently threatened?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="threatened" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="threatened" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Do you experience suicidal thoughts?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="suicidal" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="suicidal" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Do you experience feelings of inferiority over others?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="inferiority" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="inferiority" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Have you experienced a recent conflict with someone?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="reccon" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="reccon" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Have you recently experienced the loss of a loved one?</legend>
-                            <div>
-                                <input type="radio" id="yes" name="recloss" value="1">
-                                <label for="yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="no" name="recloss" value="0" checked>
-                                <label for="no">No</label>
-                            </div>
-                        </fieldset>
-                        <div id="radio-options">
-                            <select id="model-select">
-                                <option value="-1">---Select Model---</option>
-                                <option value="1">Decision tree</option>
-                                <option value="2">Naive-Bayes</option>
-                                <option value="3">SVM</option>
-                                <option value="4">KNN</option>
-                                <option value="5">Random forest (%)</option>
-                                <option value="6">Logistic regression</option>
-                                <option value="7">DNN (%)</option>
-                            </select>
-                            <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
-                        </div>
+                <fieldset>
+                    <legend>Are you satisfied with your personal achievements?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="achievesat" value="1">
+                        <label for="yes">Yes</label>
                     </div>
+                    <div>
+                        <input type="radio" id="no" name="achievesat" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Are you experiencing financial stress?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="finstress" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="finstress" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Do you suffer from insomnia?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="insomnia" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="insomnia" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Do you suffer from anxiety?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="anxiety" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="anxiety" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Do you feel you are deprived of affection?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="deprived" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="deprived" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Have you been recently subject to abuse?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="abused" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="abused" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Have you been recently cheated on?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="cheated" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="cheated" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Have you been recently threatened?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="threatened" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="threatened" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Do you experience suicidal thoughts?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="suicidal" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="suicidal" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Do you experience feelings of inferiority over others?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="inferiority" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="inferiority" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Have you experienced a recent conflict with someone?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="reccon" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="reccon" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Have you recently experienced the loss of a loved one?</legend>
+                    <div>
+                        <input type="radio" id="yes" name="recloss" value="1">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="recloss" value="0" checked>
+                        <label for="no">No</label>
+                    </div>
+                </fieldset>
+                <div id="radio-options">
+                    <select id="model-select">
+                        <option value="-1">---Select Model---</option>
+                        <option value="1">Decision tree</option>
+                        <option value="2">Naive-Bayes</option>
+                        <option value="3">SVM</option>
+                        <option value="4">KNN</option>
+                        <option value="5">Random forest (%)</option>
+                        <option value="6">Logistic regression</option>
+                        <option value="7">DNN (%)</option>
+                    </select>
+                    <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
+                </div>
             </div>
 
             <div id="result">
