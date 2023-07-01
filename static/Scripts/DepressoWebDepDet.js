@@ -30,17 +30,11 @@ function getClientLocation(){
     .then((result) => {
         if (result.state === "granted"){
             console.log(result.state);
-            navigator.geolocation.getCurrentPosition((position) => {
-                console.log("Latitude: "+position.coords.latitude+", Longitude: "+position.coords.latitude);
-                displayMap(position.coords.latitude, position.coords.longitude);
-            });
+            displayMap();
         }
         else if (result.state === "prompt"){
             console.log(result.state);
-            navigator.geolocation.getCurrentPosition((position) => {
-                console.log("Latitude: "+position.coords.latitude+", Longitude: "+position.coords.longitude);
-                displayMap(position.coords.latitude, position.coords.longitude);
-            });
+            displayMap();
         }
         else if (result.state === "denied"){
             console.log(result.state);
@@ -49,11 +43,16 @@ function getClientLocation(){
 }
 
 
-function displayMap(lat, long){
+function displayMap(){
     const mapFrame = document.querySelector("div.map iframe");
-    const mapUrl = "http://www.google.com/maps?q=psychiatrist+near+me/"+lat+","+long+"&z=13&output=embed";
-    mapFrame.setAttribute("src",mapUrl);
-    mapFrame.hidden = false;
+    if (mapFrame.getAttribute("src") === ""){
+        navigator.geolocation.getCurrentPosition((position) => {
+            console.log("Latitude: "+position.coords.latitude+", Longitude: "+position.coords.longitude); 
+            const mapUrl = "http://www.google.com/maps?q=psychiatrist+near+me/"+position.coords.latitude+","+position.coords.longitude+"&z=13&output=embed";
+            mapFrame.setAttribute("src",mapUrl);
+        });
+    }
+    mapFrame.hidden = !mapFrame.hidden;
 }
 
 
