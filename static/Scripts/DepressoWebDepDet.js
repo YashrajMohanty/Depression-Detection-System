@@ -50,9 +50,11 @@ function displayMap(){
             console.log("Latitude: "+position.coords.latitude+", Longitude: "+position.coords.longitude); 
             const mapUrl = "http://www.google.com/maps?q=psychiatrist+near+me/"+position.coords.latitude+","+position.coords.longitude+"&z=13&output=embed";
             mapFrame.setAttribute("src",mapUrl);
+            mapFrame.hidden = !mapFrame.hidden;
         });
+    } else {
+        mapFrame.hidden = !mapFrame.hidden;
     }
-    mapFrame.hidden = !mapFrame.hidden;
 }
 
 
