@@ -1,8 +1,11 @@
 const url = 'http://127.0.0.1:5000/depdet/';
 
+
 window.onscroll = function(){
     getScrollPercent();
 };
+
+
 function getScrollPercent(){
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -11,15 +14,72 @@ function getScrollPercent(){
     if (scrollPercent > 1){
         scrollPercent = 1;
     }
-
     //navbarShrink(scrollPercent);
     navbarTextOpacityAnimation(scrollPercent);
 }
+
 
 function navbarTextOpacityAnimation(scrollPercent) {
     const navText = document.getElementById("nav-text");
     navText.style.opacity = 1 - scrollPercent; // navbar text opacity
 }
+
+
+function getClientLocation(){
+    navigator.permissions.query({name:"geolocation"})
+    .then((result) => {
+        if (result.state === "granted"){
+            console.log(result.state);
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log("Latitude: "+position.coords.latitude+", Longitude: "+position.coords.latitude);
+                displayMap(position.coords.latitude, position.coords.longitude);
+            });
+        }
+        else if (result.state === "prompt"){
+            console.log(result.state);
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log("Latitude: "+position.coords.latitude+", Longitude: "+position.coords.longitude);
+                displayMap(position.coords.latitude, position.coords.longitude);
+            });
+        }
+        else if (result.state === "denied"){
+            console.log(result.state);
+        }
+    })
+}
+
+
+function displayMap(lat, long){
+    const mapFrame = document.querySelector("div.map iframe");
+    const mapUrl = "http://www.google.com/maps?q=psychiatrist+near+me/"+lat+","+long+"&z=13&output=embed";
+    mapFrame.setAttribute("src",mapUrl);
+    mapFrame.hidden = false;
+}
+
+
+async function submitResults(){
+	values = getValues();
+	model = getModel();
+
+    if (model === -1){
+        flashOptionsBar();
+        return;
+    }
+
+	const obj = {"values" : values, "model" : model};
+	const json_str = JSON.stringify(obj);
+
+    try{
+        const resp = await fetch(url + json_str, {signal: AbortSignal.timeout(2000)})
+        .then(response => response.json())
+        .then(json => {return json});
+        displayResults(resp['prediction'], model);
+
+    } catch(err){
+        displayResults(-1, model);
+    }
+}
+
 
 function getValues(){
     const radio = document.querySelector("div.radio-parent");
@@ -36,12 +96,14 @@ function getValues(){
     return values;
 }
 
+
 function getModel(){
 	const radio = document.querySelector("div.radio-parent");
 	let option = radio.querySelector("#model-select").value;
     option = Number(option);
 	return option;
 }
+
 
 function displayResults(result, model){
     changeResultTextColor(result);
@@ -67,7 +129,6 @@ function displayResults(result, model){
 }
 
 
-
 function changeResultTextColor(result){
     const resultDiv = document.getElementById("result");
     const currentColor = resultDiv.getAttribute('style','color');
@@ -88,6 +149,7 @@ function changeResultTextColor(result){
     resultDiv.animate(keyFrames, animTiming);
 }
 
+
 function flashOptionsBar(){
     const optionsBar = document.getElementById('model-select');
     const currentColor = optionsBar.getAttribute('style','background');
@@ -95,27 +157,4 @@ function flashOptionsBar(){
     keyFrames = [{background: currentColor},{background: newColor},{background: currentColor}];
     animTiming = {duration: 1000, iterations: 1};
     optionsBar.animate(keyFrames, animTiming);
-}
-
-async function submitResults(){
-	values = getValues();
-	model = getModel();
-
-    if (model === -1){
-        flashOptionsBar();
-        return;
-    }
-
-	const obj = {"values" : values, "model" : model};
-	const json_str = JSON.stringify(obj);
-
-    try{
-        const resp = await fetch(url + json_str, {signal: AbortSignal.timeout(2000)})
-        .then(response => response.json())
-        .then(json => {return json});
-        displayResults(resp['prediction'], model);
-
-    } catch(err){
-        displayResults(-1, model);
-    }
 }
