@@ -51,14 +51,12 @@ form > p {
 
 
 .radio-parent {
-    display: flex;
+    display: grid;
     padding-inline: 10px;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
     fieldset {
-        flex-basis: 45%;
         margin-inline: 0;
         border: 1px solid var(--font-color);
         border-radius: 5px;
@@ -66,12 +64,10 @@ form > p {
         accent-color: var(--font-color);
     }
     #radio-options {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
         align-items: center;
-        gap: 10px;
-        flex-basis: 45%;
-        flex-wrap: wrap;
+        gap: 20px;
     }
         #model-select, #submit-btn {
             background: hsla(0, 0%, 100%, 0);
