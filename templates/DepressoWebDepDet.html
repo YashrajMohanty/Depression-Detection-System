@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='Stylesheets/DepressoWebDepDet.css') }}">
         <link rel="icon" href="{{ url_for('static', filename='WebImages/MLMHtabicon.png') }}">
     </head>
-    <script src="{{ url_for('static', filename='Scripts/DepressoWebDepDet.js') }}"></script>
     <body>
         <nav>
             <a href="http://127.0.0.1:5000/home">
@@ -188,7 +187,7 @@
                         <option value="6">Logistic regression</option>
                         <option value="7">DNN (%)</option>
                     </select>
-                    <button type="button" id="submit-btn" onclick=submitResults()>Submit</button>
+                    <button type="button" id="submit-btn">Submit</button>
                 </div>
             </div>
 
@@ -200,7 +199,7 @@
         </form>
 
         <div class="map">
-            <p onclick=getClientLocation()>Find psychiatrists in your area</p>
+            <p id="map-text">Find psychiatrists in your area</p>
 
             <iframe
             loading="lazy"
@@ -217,6 +216,6 @@
                 <a href="https://github.com/YashrajMohanty/Depression-Detection-System" target="_blank">Source (Github)</a>
             </p>
         </div>
-
     </body>
+    <script src="{{ url_for('static', filename='Scripts/DepressoWebDepDet.js') }}"></script>
 </html>

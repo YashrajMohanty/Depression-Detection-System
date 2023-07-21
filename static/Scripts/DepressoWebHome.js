@@ -11,7 +11,6 @@ function getScrollPercent(){
     if (scrollPercent > 1){
         scrollPercent = 1;
     }
-
     //navbarShrink(scrollPercent);
     navbarTextOpacityAnimation(scrollPercent);
 }
@@ -27,6 +26,10 @@ function navbarShrinkAnimation(scrollPercent) {
 */
 
 function navbarTextOpacityAnimation(scrollPercent) {
+    scrollPercent = scrollPercent * 5; // reached 100% in 20% of the webpage
+    if (scrollPercent > 1){
+        scrollPercent = 1;
+    }
     const navText = document.getElementById("nav-text");
     navText.style.opacity = 1 - scrollPercent; // navbar text opacity
 }
