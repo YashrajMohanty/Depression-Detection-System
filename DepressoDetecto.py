@@ -8,9 +8,15 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LogisticRegression
-from keras.models import Sequential
-from keras.layers import Dense
+import tensorflow as tf
+from tensorflow.python.keras import backend
+from tensorflow.python.keras.models import Sequential
+from tensorflow.python.keras.layers import Dense
 
+config = tf.compat.v1.ConfigProto( device_count = {'GPU': 1 , 'CPU': 8} )
+sess = tf.compat.v1.Session(config=config) 
+backend.set_session(sess)
+print(tf.config.experimental.list_physical_devices())
 warnings.filterwarnings("ignore", category=UserWarning) #suppress UserWarning
 
 '''Data cleaning'''
